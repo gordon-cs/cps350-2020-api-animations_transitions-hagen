@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView wifiImage, smileyImage, patternImage, paradise, runningBird;
     AnimationDrawable wifiAnimation, smileyAnimation;
     ObjectAnimator birdAnimation;
-    TextView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
