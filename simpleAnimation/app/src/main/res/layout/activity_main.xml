@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/container"
+    android:animateLayoutChanges="true">
 
     <ImageView
         android:id="@+id/image"
@@ -101,32 +103,27 @@
         android:contentDescription="@string/image_move"/>
 
 
-    <ImageView
-        android:id="@+id/image5"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+    <ImageButton
+        android:id="@+id/thumb_button_1"
+        android:layout_width="125dp"
+        android:layout_height="200dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias=".1"
-        app:layout_constraintVertical_bias=".7"
+        app:layout_constraintVertical_bias=".8"
+        android:scaleType="centerCrop"
         android:src="@drawable/birds_flying"
-        android:contentDescription="@string/image_zoom"/>
+        android:contentDescription="@string/image_zoom" />
 
 
-    <Button
-        android:id="@+id/btn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias=".12"
-        app:layout_constraintVertical_bias=".9"
-        android:text="@string/zoomIn"
-        android:onClick="zoomClick"/>
+    <ImageView
+        android:id="@+id/image5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:contentDescription="@string/zoomIn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
