@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.Image;
@@ -14,14 +15,17 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     //Declares variables
-    Button fadeButton;
-    ImageView wifiImage, smileyImage, patternImage, paradise;
+    Button fadeButton, moveButton;
+    ImageView wifiImage, smileyImage, patternImage, paradise, runningBird;
     AnimationDrawable wifiAnimation, smileyAnimation;
+    ObjectAnimator birdAnimation;
+    TextView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +47,23 @@ public class MainActivity extends AppCompatActivity {
 
         paradise = (ImageView) findViewById(R.id.image3);
 
+        runningBird = (ImageView) findViewById(R.id.image4);
+        moveButton = (Button) findViewById(R.id.btn2);
+
+        birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -700f);
+
+        moveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //4000 means 3 seconds
+                birdAnimation.setDuration(3000);
+                birdAnimation.start();
+
+            }
+        });
     }
+
 
     private void rotateAnimation() {
         Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);

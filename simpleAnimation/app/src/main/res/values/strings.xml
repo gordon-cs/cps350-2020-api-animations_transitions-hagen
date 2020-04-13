@@ -5,4 +5,6 @@
     <string name="image_demo">image_demo</string>
     <string name="image_fade">image_fade</string>
     <string name="fade_out">fade_button</string>
+    <string name="move_btn">move_button</string>
+    <string name="image_move">image_move</string>
 </resources>
