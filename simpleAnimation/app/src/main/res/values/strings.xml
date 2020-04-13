@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">simpleAnimation</string>
+    <string name="todo">TODO</string>
+    <string name="inside_android">Inside Android</string>
 </resources>
