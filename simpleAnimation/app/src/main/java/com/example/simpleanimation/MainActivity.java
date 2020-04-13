@@ -2,6 +2,8 @@ package com.example.simpleanimation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.Image;
@@ -12,12 +14,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     //Declares variables
     Button fadeButton;
-    ImageView wifiImage, smileyImage, patternImage;
+    ImageView wifiImage, smileyImage, patternImage, paradise;
     AnimationDrawable wifiAnimation, smileyAnimation;
 
     @Override
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
         patternImage = (ImageView) findViewById(R.id.image2);
         rotateAnimation();
 
+        paradise = (ImageView) findViewById(R.id.image3);
+
     }
 
     private void rotateAnimation() {
@@ -50,6 +55,17 @@ public class MainActivity extends AppCompatActivity {
         super.onWindowFocusChanged(hasFocus);
         wifiAnimation.start();
         smileyAnimation.start();
+    }
+
+    public void fadeClick(View view) {
+        paradise.setAlpha(0f);
+        paradise.setVisibility(View.VISIBLE);
+        paradise.animate().alpha(1f).setDuration(5000).setListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                paradise.setVisibility(View.GONE);
+            }
+        });
     }
 }
 
