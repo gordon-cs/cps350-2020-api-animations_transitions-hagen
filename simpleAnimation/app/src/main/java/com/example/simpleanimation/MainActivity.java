@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.AnimationDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -13,10 +15,10 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    Button btn;
-
-    AnimationDrawable wifiAnimation;
+    //Declares variables
+    Button fadeButton;
+    ImageView wifiImage, smileyImage, patternImage;
+    AnimationDrawable wifiAnimation, smileyAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +26,30 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //https://developer.android.com/guide/topics/graphics/drawable-animation
-        ImageView imageView = (ImageView)findViewById(R.id.image);
-        imageView.setBackgroundResource(R.drawable.animation);
-        wifiAnimation = (AnimationDrawable) imageView.getBackground();
+        wifiImage = (ImageView) findViewById(R.id.image);
+        wifiImage.setBackgroundResource(R.drawable.animation);
+        wifiAnimation = (AnimationDrawable) wifiImage.getBackground();
+
+        smileyImage = (ImageView) findViewById(R.id.image1);
+        smileyImage.setBackgroundResource(R.drawable.animation2);
+        smileyAnimation = (AnimationDrawable) smileyImage.getBackground();
 
         //https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
-        btn=(Button)findViewById(R.id.btn);
+        patternImage = (ImageView) findViewById(R.id.image2);
+        rotateAnimation();
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Animation animation=AnimationUtils.loadAnimation(MainActivity.this,R.anim.mixed_anim);
+    }
 
-                btn.startAnimation(animation);
-            }
-        });
-
+    private void rotateAnimation() {
+        Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        patternImage.startAnimation(rotateAnimation);
     }
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         wifiAnimation.start();
+        smileyAnimation.start();
     }
 }
+

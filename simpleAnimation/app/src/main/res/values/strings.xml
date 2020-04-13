@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">simpleAnimation</string>
-    <string name="todo">TODO</string>
-    <string name="inside_android">Inside Android</string>
+    <string name="image">image</string>
+    <string name="image1">image1</string>
+    <string name="image_demo">image_demo</string>
+    <string name="image_fade">image_fade</string>
+    <string name="fade_button">fade_button</string>
 </resources>
