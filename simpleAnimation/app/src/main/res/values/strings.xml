@@ -8,5 +8,7 @@
     <string name="move_btn">move_button</string>
     <string name="image_move">image_move</string>
     <string name="image_zoom">image_zoom</string>
+    <string name="image_blink">image_blink</string>
     <string name="zoomIn">zoom_In</string>
+    <string name="mixed_btn">wild_button</string>
 </resources>

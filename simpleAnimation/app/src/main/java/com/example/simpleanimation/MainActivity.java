@@ -25,8 +25,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     //Declares variables
-    Button fadeButton, moveButton;
-    ImageView wifiImage, smileyImage, patternImage, paradise, runningBird, birds_flying;
+    Button wildButton, moveButton;
+    ImageView wifiImage, smileyImage, patternImage, paradise, runningBird, butterfly;
     AnimationDrawable wifiAnimation, smileyAnimation;
     ObjectAnimator birdAnimation;
 
@@ -66,10 +66,15 @@ public class MainActivity extends AppCompatActivity {
         patternImage = (ImageView) findViewById(R.id.image2);
         rotateAnimation();
 
+        butterfly = (ImageView) findViewById(R.id.image6);
+        blinkAnimation();
+
         paradise = (ImageView) findViewById(R.id.image3);
 
         runningBird = (ImageView) findViewById(R.id.image4);
+
         moveButton = (Button) findViewById(R.id.btn2);
+        wildButton = (Button) findViewById(R.id.btn3);
 
         birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -700f);
 
@@ -77,10 +82,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //4000 means 3 seconds
+                //3000 means 3 seconds
                 birdAnimation.setDuration(3000);
                 birdAnimation.start();
 
+            }
+        });
+
+        wildButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Animation animation = AnimationUtils.loadAnimation(MainActivity.this,R.anim.mixed_anim);
+                wildButton.startAnimation(animation);
             }
         });
     }
@@ -230,6 +243,11 @@ public class MainActivity extends AppCompatActivity {
     private void rotateAnimation() {
         Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
         patternImage.startAnimation(rotateAnimation);
+    }
+
+    private void blinkAnimation() {
+        Animation blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink);
+        butterfly.startAnimation(blinkAnimation);
     }
 
     @Override
