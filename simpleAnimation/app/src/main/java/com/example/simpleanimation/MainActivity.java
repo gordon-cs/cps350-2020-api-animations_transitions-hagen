@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     AnimationDrawable wifiAnimation, smileyAnimation;
     ObjectAnimator birdAnimation;
 
+    //Variables for zoom method
     private Animator currentAnimator;
     private int shortAnimationDuration;
 
@@ -38,46 +39,51 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Hook up clicks on the thumbnail views.
-
-        final View thumb1View = findViewById(R.id.thumb_button_1);
-        thumb1View.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                zoomImageFromThumb(thumb1View, R.drawable.birds_flying);
-            }
-        });
-
-        // Retrieve and cache the system's default "short" animation time.
-        shortAnimationDuration = getResources().getInteger(
-                android.R.integer.config_shortAnimTime);
-
-
-        //https://developer.android.com/guide/topics/graphics/drawable-animation
+        /*
+         * Animate drawable graphics
+         * https://developer.android.com/guide/topics/graphics/drawable-animation
+         */
         wifiImage = (ImageView) findViewById(R.id.image);
         wifiImage.setBackgroundResource(R.drawable.animation);
         wifiAnimation = (AnimationDrawable) wifiImage.getBackground();
+
+        /*
+         * Android Studio cannot resolve the start() method - it appears as red and does not work
+        wifiImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                wifiImage.start();
+            }
+        });
+        */
 
         smileyImage = (ImageView) findViewById(R.id.image1);
         smileyImage.setBackgroundResource(R.drawable.animation2);
         smileyAnimation = (AnimationDrawable) smileyImage.getBackground();
 
-        //https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
+
+        /*
+         * View animation
+         * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
+         */
         patternImage = (ImageView) findViewById(R.id.image2);
         rotateAnimation();
 
         butterfly = (ImageView) findViewById(R.id.image6);
         blinkAnimation();
 
+        // Binds the XML image with java object using findViewById function
         paradise = (ImageView) findViewById(R.id.image3);
-
         runningBird = (ImageView) findViewById(R.id.image4);
 
+        // Buttons for view animation
         moveButton = (Button) findViewById(R.id.btn2);
         wildButton = (Button) findViewById(R.id.btn3);
 
+        // Runningbird image for view animation
         birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -300f);
 
+        // Setting on click listener for the button
         moveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Setting on click listener for the button
         wildButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,9 +103,30 @@ public class MainActivity extends AppCompatActivity {
                 wildButton.startAnimation(animation);
             }
         });
+
+
+        /*
+         * Zoom animation set up
+         * Hook up clicks on the thumbnail views.
+         */
+        final View thumb1View = findViewById(R.id.thumb_button_1);
+        thumb1View.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                zoomImageFromThumb(thumb1View, R.drawable.birds_flying);
+            }
+        });
+
+        // Retrieve and cache the system's default "short" animation time.
+        shortAnimationDuration = getResources().getInteger(
+                android.R.integer.config_shortAnimTime);
     }
 
 
+    /*
+     * Enlarge a view using zoom
+     * https://developer.android.com/training/animation/zoom
+     */
     private void zoomImageFromThumb(final View thumbView, int imageResId) {
         // If there's an animation in progress, cancel it
         // immediately and proceed with this one.
@@ -239,16 +267,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    /*
+     * View animation
+     * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
+     */
     private void rotateAnimation() {
         Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
         patternImage.startAnimation(rotateAnimation);
     }
 
+    /*
+     * View animation
+     * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
+     */
     private void blinkAnimation() {
         Animation blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink);
         butterfly.startAnimation(blinkAnimation);
     }
+
+    /*
+     * Animate drawable graphics
+     * https://developer.android.com/guide/topics/graphics/drawable-animation
+     * https://www.codota.com/code/java/methods/android.app.Activity/onWindowFocusChanged
+     */
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
@@ -256,6 +297,11 @@ public class MainActivity extends AppCompatActivity {
         wifiAnimation.start();
         smileyAnimation.start();
     }
+
+    /*
+     * Reveal or hide a view using animation
+     * https://developer.android.com/training/animation/reveal-or-hide-view
+     */
 
     public void fadeClick(View view) {
         paradise.setAlpha(0f);
