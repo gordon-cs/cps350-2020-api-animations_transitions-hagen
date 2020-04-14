@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         moveButton = (Button) findViewById(R.id.btn2);
         wildButton = (Button) findViewById(R.id.btn3);
 
-        birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -1500f);
+        birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -300f);
 
         moveButton.setOnClickListener(new View.OnClickListener() {
             @Override

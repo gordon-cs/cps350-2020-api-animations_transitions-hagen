@@ -58,6 +58,7 @@
         app:layout_constraintVertical_bias=".4"
         app:layout_constraintHorizontal_bias=".001"
         android:src="@drawable/flowers"
+        android:visibility="gone"
         android:contentDescription="@string/image_fade"/>
 
 
