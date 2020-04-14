@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView wifiImage, smileyImage, patternImage, paradise, runningBird, butterfly;
     AnimationDrawable wifiAnimation, smileyAnimation;
     ObjectAnimator birdAnimation;
+    Animation rotateAnimation, blinkAnimation;
 
     //Variables for zoom method
     private Animator currentAnimator;
@@ -67,10 +68,13 @@ public class MainActivity extends AppCompatActivity {
          * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
          */
         patternImage = (ImageView) findViewById(R.id.image2);
-        rotateAnimation();
+        rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
+        patternImage.startAnimation(rotateAnimation);
 
         butterfly = (ImageView) findViewById(R.id.image6);
-        blinkAnimation();
+        blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink);
+        butterfly.startAnimation(blinkAnimation);
+
 
         // Binds the XML image with java object using findViewById function
         paradise = (ImageView) findViewById(R.id.image3);
@@ -268,27 +272,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     /*
-     * View animation
-     * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
-     */
-    private void rotateAnimation() {
-        Animation rotateAnimation = AnimationUtils.loadAnimation(this, R.anim.rotate);
-        patternImage.startAnimation(rotateAnimation);
-    }
-
-    /*
-     * View animation
-     * https://developer.android.com/guide/topics/graphics/view-animation?hl=tr
-     */
-    private void blinkAnimation() {
-        Animation blinkAnimation = AnimationUtils.loadAnimation(this, R.anim.blink);
-        butterfly.startAnimation(blinkAnimation);
-    }
-
-    /*
      * Animate drawable graphics
      * https://developer.android.com/guide/topics/graphics/drawable-animation
-     * https://www.codota.com/code/java/methods/android.app.Activity/onWindowFocusChanged
+     * https://developer.android.com/reference/android/view/ViewTreeObserver.OnWindowFocusChangeListener
      */
 
     @Override
