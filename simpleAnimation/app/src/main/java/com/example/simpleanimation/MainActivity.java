@@ -76,14 +76,14 @@ public class MainActivity extends AppCompatActivity {
         moveButton = (Button) findViewById(R.id.btn2);
         wildButton = (Button) findViewById(R.id.btn3);
 
-        birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -700f);
+        birdAnimation = ObjectAnimator.ofFloat(runningBird, "translationX", -1500f);
 
         moveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //3000 means 3 seconds
-                birdAnimation.setDuration(3000);
+                //1000 means 1 seconds
+                birdAnimation.setDuration(1000);
                 birdAnimation.start();
 
             }
