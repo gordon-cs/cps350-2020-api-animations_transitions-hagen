@@ -9,6 +9,7 @@
     android:id="@+id/container"
     android:animateLayoutChanges="true">
 
+    <!-- Wifi drawable graphic -->
     <ImageView
         android:id="@+id/image"
         android:layout_width="100dp"
@@ -20,7 +21,9 @@
         app:layout_constraintHorizontal_bias=".1"
         app:layout_constraintVertical_bias=".07"
         android:contentDescription="@string/image"/>
+    <!-- End Wifi drawable graphic -->
 
+    <!-- Smiley drawable graphic -->
     <ImageView
         android:id="@+id/image1"
         android:layout_width="100dp"
@@ -32,7 +35,9 @@
         app:layout_constraintHorizontal_bias=".46"
         app:layout_constraintVertical_bias=".07"
         android:contentDescription="@string/image1"/>
+    <!-- End Smiley drawable graphic -->
 
+    <!-- Pattern image -->
     <ImageView
         android:id="@+id/image2"
         android:layout_width="110dp"
@@ -45,8 +50,9 @@
         app:layout_constraintVertical_bias=".07"
         android:src="@drawable/pattern"
         android:contentDescription="@string/image_demo"/>
+    <!-- End pattern image -->
 
-
+    <!-- Flower image -->
     <ImageView
         android:id="@+id/image3"
         android:layout_width="200dp"
@@ -60,8 +66,9 @@
         android:src="@drawable/flowers"
         android:visibility="gone"
         android:contentDescription="@string/image_fade"/>
+    <!-- End flower image -->
 
-
+    <!-- Fade button -->
     <Button
         android:id="@+id/btn"
         android:layout_width="wrap_content"
@@ -74,8 +81,9 @@
         app:layout_constraintVertical_bias=".65"
         android:text="@string/fade_out"
         android:onClick="fadeClick"/>
+    <!-- End fade button -->
 
-
+    <!-- Run button -->
     <Button
         android:id="@+id/btn2"
         android:layout_width="wrap_content"
@@ -87,8 +95,9 @@
         app:layout_constraintHorizontal_bias=".95"
         app:layout_constraintVertical_bias=".34"
         android:text="@string/move_btn"/>
+    <!-- End run button -->
 
-
+    <!-- Running bird image -->
     <ImageView
         android:id="@+id/image4"
         android:layout_width="130dp"
@@ -101,8 +110,9 @@
         app:layout_constraintVertical_bias=".5"
         android:src="@drawable/bird"
         android:contentDescription="@string/image_move"/>
+    <!-- End running bird image -->
 
-
+    <!-- Zoom image button -->
     <ImageButton
         android:id="@+id/thumb_button_1"
         android:layout_width="125dp"
@@ -116,16 +126,18 @@
         android:scaleType="centerCrop"
         android:src="@drawable/birds_flying"
         android:contentDescription="@string/image_zoom" />
+    <!-- End zoom image button -->
 
-
+    <!-- Enlarge image -->
     <ImageView
         android:id="@+id/image5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="invisible"
         android:contentDescription="@string/zoomIn" />
+    <!-- End enlarge image -->
 
-
+    <!-- Butterfly image -->
     <ImageView
         android:id="@+id/image6"
         android:layout_width="150dp"
@@ -138,8 +150,9 @@
         app:layout_constraintVertical_bias=".78"
         android:src="@drawable/butterfly1"
         android:contentDescription="@string/image_blink"/>
+    <!-- End butterfly image -->
 
-
+    <!-- Wild button -->
     <Button
         android:id="@+id/btn3"
         android:layout_width="wrap_content"
@@ -151,6 +164,7 @@
         app:layout_constraintHorizontal_bias=".8"
         app:layout_constraintVertical_bias=".9"
         android:text="@string/mixed_btn"/>
+    <!-- End wild button -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

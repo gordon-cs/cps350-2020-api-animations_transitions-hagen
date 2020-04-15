@@ -290,8 +290,13 @@ public class MainActivity extends AppCompatActivity {
      */
 
     public void fadeClick(View view) {
+        // Set the image paradise to 0% opacity but visible, so that it is visible
+        // (but fully transparent) during the animation.
         paradise.setAlpha(0f);
         paradise.setVisibility(View.VISIBLE);
+        // Animate the image paradise to 100% opacity, and clear any animation
+        // After the animation ends, set its visibility to GONE as an optimization step (it won't
+        // participate in layout passes, etc.)
         paradise.animate().alpha(1f).setDuration(5000).setListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
